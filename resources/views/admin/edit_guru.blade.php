@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('tittle','Tambah Guru')
+@section('tittle','Edit Guru')
 
 @section('content')
 
@@ -8,12 +8,13 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Tambah Guru</h6>
-                <form action="{{route('admin.guru_store')}}" method="post">
+                <h6 class="mb-4">Edit Guru</h6>
+                <form action="{{route('admin.guru_update', $guru->id_guru)}}" method="post">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="nip" class="form-label">NIP</label>
-                        <input type="text" class="form-control" id="nip" name="nip">
+                        <input type="text" class="form-control" id="nip" name="nip" value="{{old('nip', $guru->nip)}}">
                         <div class="text-danger">
                             @error('nip')
                             {{$message}}
@@ -23,7 +24,7 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">EMAIL</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email"  value="{{old('email', $guru->email)}}">
                         <div class="text-danger">
                         @error('email')
                         {{$message}}
@@ -41,7 +42,7 @@
 
                     <div class="mb-3">
                         <label for="nama_guru" class="form-label">NAMA GURU</label>
-                        <input type="text" class="form-control" id="nama_guru" name="nama_guru">
+                        <input type="text" class="form-control" id="nama_guru" name="nama_guru"  value="{{old('nama_guru', $guru->nama_guru)}}">
                         <div class="text-danger">
                         @error('nama_guru')
                         {{$message}}
@@ -55,6 +56,9 @@
                         @error('foto')
                         {{$message}}
                         @enderror
+                    </div>
+                    <div class="mb-2">
+                    <img src="{{asset('storage/' . $guru->foto)}}" alt="" height="80">
                     </div>
                     <button type="submit" class="btn btn-primary">SAVE</button>
 

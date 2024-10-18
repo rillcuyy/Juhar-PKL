@@ -30,14 +30,14 @@
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$guru->nip}}</td>
-                        <td>{{$guru->emailp}}</td>
+                        <td>{{$guru->email}}</td>
                         <td>{{$guru->nama_guru}}</td>
                         <td>
                             <img src="{{asset('storage/'.$guru->foto)}}" alt="" height="30">
                         </td>
                         <td>
-                            <a href="" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href=" {{route('admin.guru_edit', $guru->id_guru)}}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{route('admin.guru_delete', $guru->id_guru)}}" onclick="return confirm('Yakin Ingin Menghapus Data Tersebut')" class="btn btn-danger btn-sm">delete</a>
                         </td>
 
                     </tr>
