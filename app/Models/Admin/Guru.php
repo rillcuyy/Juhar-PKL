@@ -23,4 +23,9 @@ class Guru extends Model
         'password',
         
     ];
+
+    public function pembimbingGuru()
+    {
+        return $this->belongsTo(Pembimbing::class, 'id_guru', 'id_guru');
+    }
 }

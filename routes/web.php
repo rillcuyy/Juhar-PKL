@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DudiController;
 use App\Http\Controllers\Admin\GuruController;
+use App\Http\Controllers\Admin\PembimbingController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,20 @@ Route::middleware(['admin'])->group(function(){
     Route::get('/admin/Guru/delete/{id}', [GuruController::class, 'delete'])->name('admin.guru_delete');
     
     Route::get('/admin/Dudi', [DudiController::class, 'Dudi'])->name('admin.Dudi');
-    Route::get('/admin/Pembimbing', [AdminController::class, 'Pembimbing'])->name('admin.Pembimbing');
+    Route::get('/admin/Dudi/tambah', [DudiController::class, 'create'])->name('admin.dudi_tambah');
+    Route::post('/admin/Dudi/tambah', [DudiController::class, 'store'])->name('admin.dudi_store');
+    Route::get('/admin/Dudi/edit/{id}', [DudiController::class, 'edit'])->name('admin.edit_dudi');
+    Route::put('/admin/Dudi/update/{id}', [DudiController::class, 'update'])->name('admin.dudi_update');
+    Route::get('/admin/Dudi/delete/{id}', [DudiController::class, 'delete'])->name('admin.dudi_delete');
+   
+
+
+    Route::get('/admin/Pembimbing', [PembimbingController::class, 'Pembimbing'])->name('admin.Pembimbing');
+    Route::get('/admin/Pembimbing/tambah', [PembimbingController::class, 'create'])->name('admin.tambah_pembimbing');
+    Route::post('/admin/Pembimbing/tambah', [PembimbingController::class, 'store'])->name('admin.Pembimbing_store');
+    Route::get('/admin/Pembimbing/edit/{id}', [PembimbingController::class, 'edit'])->name('admin.Pembimbing_edit');
+    Route::put('/admin/Pembimbing/update/{id}', [PembimbingController::class, 'update'])->name('admin.Pembimbing_update');
+    Route::get('/admin/Pembimbing/delete/{id}', [PembimbingController::class, 'delete'])->name('admin.Pembimbing_delete');
 
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 

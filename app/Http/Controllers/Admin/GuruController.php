@@ -126,7 +126,6 @@ class GuruController extends Controller
         $foto = $guru->foto;
 
         if($guru->foto) {
-            
             if(Storage::disk('public')->exists($foto)){
                 Storage::disk('public')->delete($foto);
         }
