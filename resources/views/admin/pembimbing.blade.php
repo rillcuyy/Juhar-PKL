@@ -31,7 +31,7 @@
                         <td>
                             <a href="{{route('admin.Pembimbing_edit', $pembimbing->id_pembimbing)}}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="{{route('admin.Pembimbing_delete', $pembimbing->id_pembimbing)}}" onclick="return confirm('Yakin Ingin Menghapus Data Tersebut')" class="btn btn-danger btn-sm">delete</a>
-                            <a href="" class="btn btn-primary btn-sm">Siswa</a>
+                            <a href="{{route('admin.siswa', $pembimbing->id_pembimbing)}}" class="btn btn-primary btn-sm">Siswa</a>
 
                         </td>
 
