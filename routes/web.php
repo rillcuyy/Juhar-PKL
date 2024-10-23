@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\Admin\PembimbingController;
 use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\Auth\GuruLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,10 +15,18 @@ Route::get('/', function () {
 Route::middleware(['guest'])->group(function(){
     Route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
     Route::post('/admin/submit', [AdminLoginController::class, 'submit'])->name('admin.submit');
+
+    Route::get('/guru/login', [GuruLoginController::class, 'login'])->name('guru.login');
+    Route::post('/guru/submit', [GuruLoginController::class, 'submit'])->name('guru.submit');
+    Route::get('/guru/dashboard', [GuruLoginController::class, 'dashboard'])->name('guru.dashboard');
 });
 
 Route::middleware(['admin'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::put('/admin/profile/update', [AdminController::class, 'update'])->name('admin.profile_update');
+
+    
     Route::get('/admin/Guru', [GuruController::class, 'Guru'])->name('admin.Guru');
     Route::get('/admin/Guru/tambah', [GuruController::class, 'create'])->name('admin.guru_tambah');
     Route::post('/admin/Guru/tambah', [GuruController::class, 'store'])->name('admin.guru_store');
