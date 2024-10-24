@@ -61,10 +61,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{route('admin.dashboard')}}" class="nav-item nav-link {{request()->routeIs('admin.dashboard')? 'active' : ''}} "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="{{route('admin.Guru')}}" class="nav-item nav-link {{request()->routeIs('admin.Guru*')? 'active' : ''}}" ><i class="fa fa-th me-2"></i>Guru</a>
-                    <a href="{{route('admin.Dudi')}}" class="nav-item nav-link {{request()->routeIs('admin.Dudi*')? 'active' : ''}}"><i class="fa fa-keyboard me-2"></i>Dudi</a>
-                    <a href="{{route('admin.Pembimbing')}}" class="nav-item nav-link {{request()->routeIs('admin.Pembimbing*')? 'active' : ''}}"><i class="fa fa-table me-2"></i>Pembimbing</a>
+                    <a href="{{route('guru.dashboard')}}" class="nav-item nav-link {{request()->routeIs('guru.dashboard')? 'active' : ''}} "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route('guru.pembimbing')}}" class="nav-item nav-link {{request()->routeIs('guru.pembimbing*')? 'active' : ''}}"><i class="fa fa-table me-2"></i>Pembimbing</a>
                   
                 </div>
             </nav>
@@ -92,8 +90,8 @@
                             <span class="d-none d-lg-inline-flex">{{Auth::guard('guru')->user()->nama_guru}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="{{route('admin.profile')}}" class="dropdown-item">My Profile</a>
-                            <a href="{{route('admin.logout')}}" class="dropdown-item">Log Out</a>
+                            <a href="{{route('guru.profile_guru')}}" class="dropdown-item">My Profile</a>
+                            <a href="{{route('guru.logout')}}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

@@ -52,7 +52,7 @@
                             <a href="index.html" class="">
 
                             </a>
-                            <h3>Masuk Min</h3>
+                            <h3>LOGIN</h3>
                         </div>
                         <form action="{{route('guru.submit')}}" method="post">
                             @csrf
