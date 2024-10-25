@@ -5,32 +5,33 @@
 @section('content')
 
 
+
 @if($siswa)
 <div class="row bg-light rounded align-items-center mx-0">
-                    <div class="col-md-6 p-3">
-                       <table>
-                        <tr>
-                            <td width="100">Pembimbing</td>
-                            <td width="30">=></td>
-                            <td>
-                               
-                                {{$siswa->pembimbingSiswa->guru->nama_guru}}
-                            
-                            </td>
-                        </tr>
+    <div class="col-md-6 p-3">
+        <table>
+            <tr>
+                <td width="100">Pembimbing</td>
+                <td width="30">=></td>
+                <td>
 
-                        <tr>
-                            <td width="100">Dudi</td>
-                            <td width="30">=></td>
-                            <td>
-                               
-                                {{$siswa->pembimbingSiswa->dudi->nama_dudi}}
-                            
-                            </td>
-                        </tr>
-                       </table>
-                    </div>
-                </div>
+                    {{$siswa->pembimbingSiswa->guru->nama_guru}}
+
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100">Dudi</td>
+                <td width="30">=></td>
+                <td>
+
+                    {{$siswa->pembimbingSiswa->dudi->nama_dudi}}
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 @endif
 
 

@@ -112,6 +112,7 @@ class PembimbingController extends Controller
 
     public function PembimbingGuru()
     {
+
         $id_guru = Auth::guard('guru')->user()->id_guru;
         $pembimbings = Pembimbing::where('id_guru', $id_guru)->get();
         

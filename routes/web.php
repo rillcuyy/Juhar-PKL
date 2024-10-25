@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DudiController;
 use App\Http\Controllers\Admin\GuruController;
+use App\Http\Controllers\Admin\kegiatanController;
 use App\Http\Controllers\Admin\PembimbingController;
 use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -68,6 +69,8 @@ Route::middleware(['guru'])->group(function(){
     Route::get('/guru/dashboard', [GuruLoginController::class, 'dashboard'])->name('guru.dashboard');
     Route::get('/guru/pembimbing', [PembimbingController::class, 'PembimbingGuru'])->name('guru.pembimbing');
     Route::get('/guru/Pembimbing/{id}/siswa', [SiswaController::class, 'siswaGuru'])->name('guru.pembimbing_siswa');
+    Route::get('/guru/Pembimbing/{id}/siswa/{id_siswa}/kegiatan', [kegiatanController::class, 'kegiatan'])->name('guru.pembimbing_siswa_kegiatan');
+    Route::get('/guru/Pembimbing/{id}/siswa/{id_siswa}/kegiatan/detail/{id_kegiatan}', [kegiatanController::class, 'kegiatanDetail'])->name('guru.pembimbing_siswa_kegiatan_detail');
 
     Route::get('/guru/profile', [GuruController::class, 'profileGuru'])->name('guru.profile_guru');
     Route::put('/guru/profile/update', [GuruController::class, 'updateGuru'])->name('guru.guru_update');
