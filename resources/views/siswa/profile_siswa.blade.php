@@ -1,4 +1,4 @@
-@extends('guru.layout.app')
+@extends('siswa.layout.app')
 
 @section('tittle','Profile')
 
@@ -19,34 +19,24 @@
                 </div>
                
             </div>
-            <form action="{{route('guru.guru_update')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('siswa.siswa_update')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('put') 
+                @method('put')
                 <div class="mb-3">
-                    <label for="nip" class="form-label">nip</label>
-                    <input type="text" class="form-control" id="nip" name="nip" value="{{old ('nip', $profile->nip ?? 'Belum Punya NIP')}}" readonly>
+                    <label for="nisn" class="form-label">nisn</label>
+                    <input type="text" class="form-control" id="nisn" name="nisn" value="{{old ('nisn', $profile ->nisn)}}" readonly>
                     <div class="text-danger">
-                        @error('nip')
+                        @error('nisn')
                         {{$message}}
                         @enderror
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="nama_guru" class="form-label">nama guru</label>
-                    <input type="text" class="form-control" id="nama_guru" name="nama_guru" value="{{old ('nama_guru', $profile ->nama_guru)}}">
+                    <label for="nama_siswa" class="form-label">nama siswa</label>
+                    <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="{{old ('nama_siswa', $profile ->nama_siswa)}}">
                     <div class="text-danger">
-                        @error('nama_guru')
-                        {{$message}}
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{{old ('email', $profile ->email)}}">
-                    <div class="text-danger">
-                        @error('email')
+                        @error('nama_siswa')
                         {{$message}}
                         @enderror
                     </div>

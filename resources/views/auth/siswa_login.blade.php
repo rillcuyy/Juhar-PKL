@@ -52,18 +52,19 @@
                             <a href="index.html" class="">
 
                             </a>
-                            <h3>LOGIN</h3>
+                            <h3>Masuk</h3>
                             <a href="/" class="">
                                 <i class="fa fa-home" style="font-size: 30px;"></i>
                             </a>
+
                         </div>
-                        <form action="{{route('guru.submit')}}" method="post">
+                        <form action="{{route('siswa.submit')}}" method="post">
                             @csrf
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="nip_or_email" id="floatingInput" placeholder="nip atau email" value="{{old('nip_or_email')}}">
-                            <label for="floatingInput"> NIP atau EMAIL</label>
+                            <input type="text" class="form-control" name="nisn" id="floatingInput" placeholder="nisn" value="{{old('nisn')}}">
+                            <label for="floatingInput">nisn</label>
                             <div class="text-danger">
-                                @error('nip_or_email')
+                                @error('nisn')
                                 {{$message}}
                                 @enderror
                             </div>
@@ -78,6 +79,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                       
                         </form>
                     </div>
                 </div>
