@@ -25,7 +25,7 @@
                         <label for="alamat_dudi" class="form-label">ALAMAT DUDI</label>
                         <input type="text" class="form-control" id="alamat_dudi" name="alamat_dudi">
                         <div class="text-danger">
-                        @error('email')
+                        @error('alamat_dudi')
                         {{$message}}
                         @enderror
                         </div>

@@ -90,6 +90,13 @@ Route::middleware(['siswa'])->group(function(){
     Route::get('/siswa/profile', [SiswaController::class, 'profileSiswa'])->name('siswa.profile_siswa');
     Route::put('/siswa/profile/update', [SiswaController::class, 'updateSiswa'])->name('siswa.siswa_update');
     Route::get('/siswa/kegiatan', [KegiatanController::class, 'kegiatanSiswa'])->name('siswa.kegiatan_siswa');
+    
+    Route::get('/siswa/kegiatan_tambah', [KegiatanController::class, 'create'])->name('siswa.kegiatan_siswa_tambah');
+    Route::post('/siswa/kegiatan_tambah', [KegiatanController::class, 'store'])->name('siswa.kegiatan_siswa_store');
+    Route::get('/siswa/kegitan/edit/{id}', [KegiatanController::class, 'edit'])->name('siswa.kegiatan_siswa_edit');
+    Route::put('/siswa/kegiatan/edit/{id}', [KegiatanController::class, 'update'])->name('siswa.kegiatan_siswa_update');
+    Route::get('/siswa/kegiatan/delete/{id}', [KegiatanController::class, 'delete'])->name('siswa.kegiatan_siswa_delete');
+    Route::get('/siswa/kegiatan/detail/{id}', [KegiatanController::class, 'detail'])->name('siswa.kegiatan_siswa_detail');
 
     Route::get('/siswa/logout', [SiswaController::class, 'logoutSiswa'])->name('siswa.logout');
 });

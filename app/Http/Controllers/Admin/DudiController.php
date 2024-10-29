@@ -68,7 +68,6 @@ class DudiController extends Controller
     public function update(Request $request, string $id)
     {
         $dudi = Dudi::find($id);
-        // dd($dudi); 
         $request->validate([
             'nama_dudi' => 'required|unique:dudi,nama_dudi,' . $dudi->id_dudi . ',id_dudi',
             'alamat_dudi' => 'required',

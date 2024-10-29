@@ -1,4 +1,4 @@
-@extends('guru.layout.app')
+@extends('siswa.layout.app')
 
 @section('tittle','Detail Kegiatan')
 
@@ -44,7 +44,7 @@
 
                     <div class="mb-3">
                         <label for="ringkasan_kegiatan" class="form-label">Ringkasan Kegiatan</label>
-                        <input type="text" class="form-control" id="ringkasan_kegiatan" name="ringkasan_kegiatan" value="{{old('ringkasan_kegiatan', $kegiatan->ringkasan_kegiatan)}}" readonly>
+                        <textarea name="ringkasan_kegiatan" id="ringkasan_kegiatan" rows="5" readonly class="form-control">{{$kegiatan->ringkasan_kegiatan}}</textarea >
 
                     </div>
 
@@ -57,11 +57,11 @@
                     <div class="mb-3 d-flex flex-column" >
                         <label for="foto" class="form-label">Foto Kegiatan</label>
                         <div class="text-center">
-                            <img src="{{asset('storage/' . $kegiatan->foto)}}" alt="kegiatan" width="700">
+                            <img src="{{asset('storage/' . $kegiatan->foto)}}" alt="kegiatan" width="970">
                         </div>
 
                     </div>
-                    <a href="{{route('guru.pembimbing_siswa_kegiatan', ['id' => $id, 'id_siswa' => $kegiatan->id_siswa])}}" class="btn btn-primary">Kembali</a>
+                    <a href="{{route('siswa.kegiatan_siswa')}}" class="btn btn-primary">Kembali</a>
                 </form>
             </div>
         </div>

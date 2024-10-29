@@ -13,7 +13,7 @@
         @endif
         <h6 class="mb-4">Data kegiatan</h6>
         <div class="table-responsive">
-            <a href="" class="btn btn-primary btn-sm">Tambah</a>
+            <a href="{{route('siswa.kegiatan_siswa_tambah')}}" class="btn btn-primary btn-sm">Tambah</a>
 
             <table class="table" id="kegiatan">
                 <thead>
@@ -33,8 +33,9 @@
                         <td style="text-align:center;">{{$kegiatan->tanggal_kegiatan}}</td>
                         <td style="text-align:center;">{{$kegiatan->nama_kegiatan}}</td>
                         <td>
-                            <a href="" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="{{route('siswa.kegiatan_siswa_edit', $kegiatan->id_kegiatan)}}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{route('siswa.kegiatan_siswa_detail', $kegiatan->id_kegiatan)}}" class="btn btn-primary btn-sm">Detail</a>
+                            <a href="{{route('siswa.kegiatan_siswa_delete', $kegiatan->id_kegiatan)}}" onclick="return confirm('Yakin Ingin Menghapus Data Tersebut')" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
 
                     </tr>
