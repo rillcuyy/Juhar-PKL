@@ -32,7 +32,7 @@
                     <select name="id_dudi" id="id_dudi" class="form-select">
                         <option value="">..PILIH..</option>
                         @foreach($dudis as $dudi)
-                        <option value="{{ $dudi->id_dudi }}" {{$pembimbing->id_dudi == $dudi->id_dudi ? 'selected' : ''}}>{{$guru->nama_guru}}>{{$dudi->nama_dudi}}</option>
+                        <option value="{{ $dudi->id_dudi }}" {{$pembimbing->id_dudi == $dudi->id_dudi ? 'selected' : ''}}>{{$dudi->nama_dudi}}</option>
                         @endforeach
                         </select>
                         <div class="text-danger">

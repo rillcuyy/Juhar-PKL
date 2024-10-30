@@ -18,6 +18,11 @@ class SiswaController extends Controller
      */
     public function siswa($id)
     {
+        $pembimbing = Pembimbing::find($id);
+        if(!$pembimbing){
+            return back();
+        }
+
         $siswas = Siswa::where('id_pembimbing',$id)->get();
         $siswa = Siswa::where('id_pembimbing',$id)->first();
 
@@ -29,6 +34,11 @@ class SiswaController extends Controller
      */
     public function create($id)
     {
+        
+        $pembimbing = Pembimbing::find($id);
+        if(!$pembimbing){
+            return back();
+        }
         return view('admin.siswa_tambah',compact('id'));
     }
 
@@ -81,7 +91,17 @@ class SiswaController extends Controller
      */
     public function edit(string $id, $id_siswa)
     {
+
+        $pembimbing = Pembimbing::find($id);
+        if(!$pembimbing){
+            return back();
+        }
+
         $siswa = Siswa::find($id_siswa);
+        if(!$siswa){
+            return back();
+        }
+
         return view('admin.edit_siswa', compact('siswa','id'));
     }
 
@@ -102,7 +122,7 @@ class SiswaController extends Controller
 
         $foto = $siswa->foto;
         if($request->hasFile('foto')){
-            if ('foto'){
+            if ($foto){
                 Storage::disk('public')->delete($foto);
             }
             $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
@@ -119,7 +139,7 @@ class SiswaController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('admin.siswa', $id)->with('Success', 'Data Siswa Berhasil di Edit');
+        return redirect()->route('admin.siswa', $id)->with('success', 'Data Siswa Berhasil di Edit');
     }
 
 
@@ -138,7 +158,7 @@ class SiswaController extends Controller
 
          $siswa->delete();
 
-        return redirect()->back()->with('Success', 'Data siswa Berhasil diHapus');
+        return redirect()->back()->with('success', 'Data siswa Berhasil diHapus');
 
     }
 
@@ -174,7 +194,7 @@ class SiswaController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('siswa.profile_siswa')->with('success', 'Data Guru Berhasil di Edit');
+        return redirect()->route('siswa.profile_siswa')->with('success', 'Data Siswa Berhasil di Edit');
     }
 
     /**

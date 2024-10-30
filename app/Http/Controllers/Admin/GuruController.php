@@ -77,7 +77,11 @@ class GuruController extends Controller
      */
     public function edit(string $id)
     {
+        
         $guru = Guru::find($id);
+        if(!$guru){
+            return back();
+        }
         return view('admin.edit_guru', compact('guru'));
     }
 
@@ -117,7 +121,7 @@ class GuruController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('admin.Guru')->with('Success', 'Data Guru Berhasil di Edit');
+        return redirect()->route('admin.Guru')->with('success', 'Data Guru Berhasil di Edit');
     }
 
 
@@ -136,7 +140,7 @@ class GuruController extends Controller
 
          $guru->delete();
 
-        return redirect()->back()->with('Success', 'Data Guru Berhasil diHapus');
+        return redirect()->back()->with('success', 'Data Guru Berhasil diHapus');
 
 
     }

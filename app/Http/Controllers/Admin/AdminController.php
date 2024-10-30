@@ -101,7 +101,7 @@ class AdminController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('admin.profile')->with('Success', 'Data Admin Berhasil di Edit');
+        return redirect()->route('admin.profile')->with('success', 'Data Admin Berhasil di Edit');
     }
 
 

@@ -9,7 +9,7 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Edit Guru</h6>
-                <form action="{{route('admin.guru_update', $guru->id_guru)}}" method="post">
+                <form action="{{route('admin.guru_update', $guru->id_guru)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">

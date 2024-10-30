@@ -44,7 +44,7 @@
 
                     <div class="mb-3">
                         <label for="ringkasan_kegiatan" class="form-label">Ringkasan Kegiatan</label>
-                        <input type="text" class="form-control" id="ringkasan_kegiatan" name="ringkasan_kegiatan" value="{{old('ringkasan_kegiatan', $kegiatan->ringkasan_kegiatan)}}" readonly>
+                        <textarea name="ringkasan_kegiatan" id="ringkasan_kegiatan" rows="5" readonly class="form-control">{{$kegiatan->ringkasan_kegiatan}}</textarea >
 
                     </div>
 

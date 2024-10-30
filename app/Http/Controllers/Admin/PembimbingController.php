@@ -46,7 +46,7 @@ class PembimbingController extends Controller
             'id_dudi' => $request->id_dudi,
         ]);
 
-        return redirect()->route('admin.Pembimbing')->with('Success', 'Data Pembimbng Berhasil di Edit');
+        return redirect()->route('admin.Pembimbing')->with('success', 'Data Pembimbng Berhasil di Edit');
     }
 
     /**
@@ -63,6 +63,9 @@ class PembimbingController extends Controller
     public function edit(string $id)
     {
         $pembimbing = Pembimbing::find($id);
+        if(!$pembimbing){
+            return back();
+        }
         $gurus = Guru::with('pembimbingGuru')->get();
         $dudis = Dudi::with('pembimbingDudi')->get();
         return view('admin.Pembimbing_edit', compact('pembimbing','gurus','dudis'));
@@ -86,7 +89,7 @@ class PembimbingController extends Controller
             'id_dudi' => $request->id_dudi,
         ]);
 
-        return redirect()->route('admin.Pembimbing')->with('Success', 'Data Pembimbng Berhasil di Update');
+        return redirect()->route('admin.Pembimbing')->with('success', 'Data Pembimbng Berhasil di Update');
     }
 
     /**
@@ -105,7 +108,7 @@ class PembimbingController extends Controller
 
          $pembimbing->delete();
 
-        return redirect()->back()->with('Success', 'Data pembimbing Berhasil diHapus');
+        return redirect()->back()->with('success', 'Data pembimbing Berhasil diHapus');
     
 
     }
